@@ -1,6 +1,6 @@
 // AsideLeft.js
 import React from "react";
-
+import Image from "next/image";
 const DiagnosticList = ({ selectedPatient }) => {
 	return (
 		<>
@@ -8,8 +8,10 @@ const DiagnosticList = ({ selectedPatient }) => {
 				<div className="col-lg-4">
 					<div className="card p-2 cardBackground-1">
 						<div>
-							<img
-								width="80"
+							<Image
+								width={80}
+								height={80}
+								alt="respiratory_rate"
 								src="/images/respiratory_rate.svg"
 							/>
 						</div>
@@ -35,8 +37,10 @@ const DiagnosticList = ({ selectedPatient }) => {
 				<div className="col-lg-4">
 					<div className="card p-2 cardBackground-2">
 						<div>
-							<img
-								width="80"
+							<Image
+								width={80}
+								height={80}
+								alt="temperature"
 								src="/images/temperature.svg"
 							/>
 						</div>
@@ -64,8 +68,10 @@ const DiagnosticList = ({ selectedPatient }) => {
 				<div className="col-lg-4">
 					<div className="card p-2 cardBackground-3">
 						<div>
-							<img
-								width="80"
+							<Image
+								width={80}
+								height={80}
+								alt="HeartBPM"
 								src="/images/HeartBPM.svg"
 							/>
 						</div>

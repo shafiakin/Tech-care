@@ -1,5 +1,6 @@
 // AsideRight.js
 import React from "react";
+import Image from "next/image";
 
 const AsideRight = ({ patients, selectedPatient, handleClick }) => {
 	return (
@@ -7,10 +8,11 @@ const AsideRight = ({ patients, selectedPatient, handleClick }) => {
 			<div className="p-2 d-flex justify-content-between align-items-center">
 				<h4>Patient</h4>
 				<div>
-					<img
+					<Image
 						src="/images/icons/search.svg"
-						width="18"
-						height="18"
+						width={18}
+						height={18}
+						alt="search"
 					/>
 				</div>
 			</div>
@@ -26,9 +28,11 @@ const AsideRight = ({ patients, selectedPatient, handleClick }) => {
 						onClick={() => handleClick(patient)}>
 						<div className="d-flex justify-content-between">
 							<div className="profile-avatar border me-2">
-								<img
+								<Image
 									src={patient.profile_picture}
-									alt="Avatar"
+									alt="avatar"
+									width={48}
+									height={48}
 								/>
 							</div>
 							<div>
@@ -39,9 +43,11 @@ const AsideRight = ({ patients, selectedPatient, handleClick }) => {
 							</div>
 						</div>
 						<div>
-							<img
+							<Image
 								src="/images/icons/more_horizontal.svg"
 								alt="more_horizontal"
+								width={18}
+								height={18}
 							/>
 						</div>
 					</div>

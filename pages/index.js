@@ -6,6 +6,7 @@ import DiagnosticCard from "@/component/DiagnosticCardComponent";
 import TopNavComponent from "@/component/TopNavComponent";
 
 export default function Home({ patients }) {
+	// JSON.parse(document.getElementById("__NEXT_DATA__").textContent);
 	const [selectedPatient, setSelectedPatient] = useState(patients[3] || null);
 	const handleClick = (patient) => {
 		setSelectedPatient(patient);
@@ -13,7 +14,7 @@ export default function Home({ patients }) {
 
 	return (
 		<>
-			<div className="container-fluid">
+			<div className="container-fluid body">
 				<TopNavComponent />
 				{/* AsideRight */}
 				<div className="container-fluid">

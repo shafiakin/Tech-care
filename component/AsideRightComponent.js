@@ -12,7 +12,9 @@ const AsideLeft = ({ selectedPatient }) => {
 								<a
 									href="#"
 									className="avatar avatar-xl rounded-circle">
-									<img
+									<Image
+										width={150}
+										height={150}
 										alt={selectedPatient.name}
 										src={selectedPatient.profile_picture}
 									/>
@@ -24,9 +26,11 @@ const AsideLeft = ({ selectedPatient }) => {
 							<div className="row">
 								<div className="profile-card">
 									<div className="profile-avatar border me-2">
-										<img
+										<Image
+											width={26}
+											height={26}
 											src={"/images/icons/BirthIcon.svg"}
-											alt=""
+											alt="BirthIcon"
 										/>
 									</div>
 									<div>
@@ -42,9 +46,11 @@ const AsideLeft = ({ selectedPatient }) => {
 							<div className="row">
 								<div className="profile-card">
 									<div className="profile-avatar border me-2">
-										<img
+										<Image
+											width={26}
+											height={26}
 											src={"/images/icons/FemaleIcon.svg"}
-											alt=""
+											alt="FemaleIcon"
 										/>
 									</div>
 									<div>
@@ -58,9 +64,11 @@ const AsideLeft = ({ selectedPatient }) => {
 							<div className="row">
 								<div className="profile-card">
 									<div className="profile-avatar border me-2">
-										<img
+										<Image
+											width={26}
+											height={26}
 											src={"/images/icons/PhoneIcon.svg"}
-											alt=""
+											alt="PhoneIcon"
 										/>
 									</div>
 									<div>
@@ -75,9 +83,11 @@ const AsideLeft = ({ selectedPatient }) => {
 							<div className="row">
 								<div className="profile-card">
 									<div className="profile-avatar border me-2">
-										<img
+										<Image
+											width={26}
+											height={26}
 											src={"/images/icons/PhoneIcon.svg"}
-											alt=""
+											alt="PhoneIcon"
 										/>
 									</div>
 									<div>
@@ -93,9 +103,11 @@ const AsideLeft = ({ selectedPatient }) => {
 							<div className="row">
 								<div className="profile-card">
 									<div className="profile-avatar border me-2">
-										<img
+										<Image
+											width={26}
+											height={26}
 											src={"/images/icons/InsuranceIcon.svg"}
-											alt=""
+											alt="InsuranceIcon"
 										/>
 									</div>
 									<div>
@@ -127,7 +139,12 @@ const AsideLeft = ({ selectedPatient }) => {
 										key={index}
 										className="list-group-item d-flex justify-content-between align-items-center">
 										{result}
-										<img src="/images/icons/download.svg" />
+										<Image
+											width={18}
+											height={18}
+											src="/images/icons/download.svg"
+											alt="download"
+										/>
 									</li>
 								))}
 							</ul>
