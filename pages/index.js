@@ -3,7 +3,7 @@ import AsideLeft from "@/component/AsideLeftComponent";
 import AsideRight from "@/component/AsideRightComponent";
 import DiagnosticList from "@/component/DiagnosticListComponent";
 import DiagnosticCard from "@/component/DiagnosticCardComponent";
-import TopNavComponent from "@/component/TopNavComponent";
+import Navbar from "@/component/Navbar";
 
 export default function Home({ patients }) {
 	// JSON.parse(document.getElementById("__NEXT_DATA__").textContent);
@@ -15,7 +15,7 @@ export default function Home({ patients }) {
 	return (
 		<>
 			<div className="container-fluid body">
-				<TopNavComponent />
+				<Navbar />
 				{/* AsideRight */}
 				<div className="container-fluid">
 					<div className="row mt-3">

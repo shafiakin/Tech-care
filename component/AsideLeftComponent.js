@@ -19,7 +19,7 @@ const AsideRight = ({ patients, selectedPatient, handleClick }) => {
 			<div className="border-bottom">
 				{patients.map((patient, index) => (
 					<div
-						className={`profile-card d-flex justify-content-between patientList ${
+						className={`profile-card d-flex justify-content-between patientList px-2 mb-2 ${
 							selectedPatient && selectedPatient.name === patient.name
 								? "selected"
 								: ""

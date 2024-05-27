@@ -24,7 +24,7 @@ const AsideLeft = ({ selectedPatient }) => {
 								<div className="h5 my-3">{selectedPatient.name}</div>
 							</div>
 							<div className="row">
-								<div className="profile-card">
+								<div className="profile-card px-1 mb-2">
 									<div className="profile-avatar border me-2">
 										<Image
 											width={26}
@@ -44,7 +44,7 @@ const AsideLeft = ({ selectedPatient }) => {
 
 							{/* Gender */}
 							<div className="row">
-								<div className="profile-card">
+								<div className="profile-card px-1 mb-2">
 									<div className="profile-avatar border me-2">
 										<Image
 											width={26}
@@ -62,7 +62,7 @@ const AsideLeft = ({ selectedPatient }) => {
 
 							{/* Contact 1 */}
 							<div className="row">
-								<div className="profile-card">
+								<div className="profile-card px-1 mb-2">
 									<div className="profile-avatar border me-2">
 										<Image
 											width={26}
@@ -81,7 +81,7 @@ const AsideLeft = ({ selectedPatient }) => {
 							</div>
 							{/* contact 2 */}
 							<div className="row">
-								<div className="profile-card">
+								<div className="profile-card px-1 mb-2">
 									<div className="profile-avatar border me-2">
 										<Image
 											width={26}
@@ -101,7 +101,7 @@ const AsideLeft = ({ selectedPatient }) => {
 							{/* {selectedPatient} */}
 							{/* Insurance */}
 							<div className="row">
-								<div className="profile-card">
+								<div className="profile-card px-1 mb-2">
 									<div className="profile-avatar border me-2">
 										<Image
 											width={26}
@@ -116,6 +116,10 @@ const AsideLeft = ({ selectedPatient }) => {
 											{selectedPatient.insurance_type}
 										</div>
 									</div>
+								</div>
+
+								<div className="d-flex justify-content-center">
+									<button className="btn btn-brand w-75">Show All</button>
 								</div>
 							</div>
 						</>
