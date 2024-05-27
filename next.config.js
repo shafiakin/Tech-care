@@ -2,7 +2,16 @@
 const nextConfig = {
 	reactStrictMode: true,
 	images: {
-		domains: ["fedskillstest.ct.digital"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "fedskillstest.ct.digital",
+				// pathname: '/**', // You can specify a more specific path if needed
+			},
+		],
+	},
+	experimental: {
+		largePageDataBytes: 128 * 100000,
 	},
 };
 

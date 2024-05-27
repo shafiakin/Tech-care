@@ -13,7 +13,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className="navbar m-4 shadow">
+		<nav className="navbar m-2 shadow">
 			<div className="container-fluid">
 				<div className="logo">
 					<Logo />
