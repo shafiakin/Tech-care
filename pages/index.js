@@ -100,7 +100,7 @@ export async function getServerSideProps() {
 
 	const data = await response.json();
 	// console.log(data.diagnostic_list);
-	console.log(data);
+	// console.log(data);
 	return {
 		props: {
 			patients: data,
