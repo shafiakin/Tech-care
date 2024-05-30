@@ -1,109 +1,76 @@
 import React, { useState } from "react";
-import AsideLeft from "@/component/AsideLeftComponent";
-import AsideRight from "@/component/AsideRightComponent";
-import DiagnosticList from "@/component/DiagnosticListComponent";
-import DiagnosticCard from "@/component/DiagnosticCardComponent";
-import Navbar from "@/component/Navbar";
+import Logo from "@/component/Logo";
+import { useRouter } from "next/router";
 
-export default function Home({ patients }) {
-	// JSON.parse(document.getElementById("__NEXT_DATA__").textContent);
-	const [selectedPatient, setSelectedPatient] = useState(patients[3] || null);
-	const handleClick = (patient) => {
-		setSelectedPatient(patient);
+export default function Login() {
+	const [email, setEmail] = useState("admin@email.com");
+	const [password, setPassword] = useState("password");
+	const [error, setError] = useState("");
+	const router = useRouter();
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (email === "admin@email.com" && password === "password") {
+			// alert("Login successful!");
+			router.push("/dashboard"); // Redirect to dashboard
+		} else {
+			setError("Invalid email or password");
+		}
 	};
 
 	return (
 		<>
-			<div className="container-fluid body">
-				<Navbar />
-				{/* AsideRight */}
-				<div className="container-fluid">
-					<div className="row mt-3">
-						<div className="col-12 col-md-3 mb-3 asideRight scrollBar">
-							<AsideLeft
-								patients={patients}
-								selectedPatient={selectedPatient}
-								handleClick={handleClick}
-							/>
-						</div>
-						<div className="col-12 col-md-6 mb-3">
-							<div className="card border-0  shadow">
-								<div className="card-body">
-									<h5>Diagnosis History</h5>
-
-									<DiagnosticCard selectedPatient={selectedPatient} />
-									<DiagnosticList selectedPatient={selectedPatient} />
-								</div>
+			<div className="container">
+				<div className="wrapper d-flex align-items-center justify-content-center h-100">
+					<div className="card login-form mt-5 pt-5">
+						<div className="card-body">
+							<div className="text-center mb-4">
+								<Logo />
 							</div>
-
-							<div className="card border-0 mt-3 card shadow">
-								<div className="card-body">
-									<h5>Diagnostic List</h5>
-									{selectedPatient.diagnostic_list &&
-									selectedPatient.diagnostic_list.length > 0 ? (
-										<div className="table-responsive tableHeight scrollBar">
-											<table className="table">
-												<thead className="table-secondary">
-													<tr>
-														<th>#</th>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Status</th>
-													</tr>
-												</thead>
-												<tbody>
-													{selectedPatient.diagnostic_list.map(
-														(diagnostic, index) => (
-															<tr key={index}>
-																<td>{index + 1}</td>
-																<td>{diagnostic.name}</td>
-																<td>{diagnostic.description}</td>
-																<td>{diagnostic.status}</td>
-															</tr>
-														)
-													)}
-												</tbody>
-											</table>
-										</div>
-									) : (
-										<p>No diagnostics available</p>
-									)}
+							<h5 className="card-title text-center">Login Form</h5>
+							<form onSubmit={handleSubmit}>
+								<div className="mb-3">
+									<label
+										htmlFor="exampleInputEmail1"
+										className="form-label">
+										Email
+									</label>
+									<input
+										type="email"
+										className="form-control"
+										id="exampleInputEmail1"
+										value={email}
+										onChange={(e) => setEmail(e.target.value)}
+									/>
 								</div>
-							</div>
-						</div>
-						<div className="col-12 col-md-3 mb-3">
-							<AsideRight selectedPatient={selectedPatient} />
+								<div className="mb-3">
+									<label
+										htmlFor="exampleInputPassword1"
+										className="form-label">
+										Password
+									</label>
+									<input
+										type="password"
+										className="form-control"
+										id="exampleInputPassword1"
+										value={password}
+										onChange={(e) => setPassword(e.target.value)}
+									/>
+								</div>
+								{error && <div className="alert alert-danger">{error}</div>}
+								<button
+									type="submit"
+									className="btn btn-brand w-100">
+									Submit
+								</button>
+								{/* <div className="sign-up mt-4">
+                                    Don't have an account? <a href="#">Create One</a>
+                                </div> */}
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</>
 	);
-}
-
-export async function getServerSideProps() {
-	const api = process.env.API_URL;
-	const username = process.env.API_USERNAME;
-	const password = process.env.API_PASSWORD;
-
-	const auth = btoa(`${username}:${password}`);
-
-	const response = await fetch(api, {
-		headers: {
-			Authorization: `Basic ${auth}`,
-		},
-	});
-
-	if (!response.ok) {
-		throw new Error(`HTTP error! status: ${response.status}`);
-	}
-
-	const data = await response.json();
-	// console.log(data.diagnostic_list);
-	// console.log(data);
-	return {
-		props: {
-			patients: data,
-		},
-	};
 }
